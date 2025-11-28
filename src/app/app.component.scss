@@ -41,6 +41,12 @@
   font-weight: 600;
 }
 
+.main-nav a.active {
+  background: #d81b60;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
 .app-main {
   flex: 1;
   padding: 2rem 1rem;
