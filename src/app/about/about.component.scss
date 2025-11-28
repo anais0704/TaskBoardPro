@@ -1,23 +1,29 @@
 .about-card {
   background: #fff;
-  padding: 2rem 1rem;
-  border-radius: 4px;
-  text-align: center;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .about-card h1 {
-  margin: 0 0 1rem;
+  margin: 0 0 1.5rem;
   color: #d81b60;
-  font-size: 1.6rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-align: center;
 }
 
-.about-card__link {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.6rem 1.4rem;
-  border: 1px solid #d81b60;
-  border-radius: 4px;
-  text-decoration: none;
-  color: #d81b60;
+.about-card p {
+  margin: 0 0 1.5rem;
+  color: #4a4a4a;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.about-card p:last-child {
+  margin-bottom: 0;
 }
 

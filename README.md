@@ -12,7 +12,7 @@ ng g component task
 ## Routes actives
 
 - `/` HomeComponent
-- `/about` AboutComponent
+- `/about` AboutComponent (lazy loading)
 - `/tasks` TasksPageComponent (lazy loading)
 
 ## Séquence 2 - Logique réactive du flux de données
@@ -92,3 +92,27 @@ Dans notre cas, `taskSubject` conserve la liste complète des tâches et la diff
 - `async` gère l'abonnement et le désabonnement automatiquement.
 - Le flux reste cohérent entre le service et la vue.
 - `BehaviorSubject` permet de conserver l'état et de le partager entre plusieurs composants.
+
+## Séquence 3 - Lazy Loading
+
+### Ce qu'est le Lazy Loading
+
+Le **Lazy Loading** permet de charger les composants Angular uniquement quand ils sont nécessaires, plutôt que de tout charger au démarrage. Cela améliore les performances en réduisant le bundle initial et en accélérant le chargement de l'application.
+
+Dans notre application, `AboutComponent` et `TasksPageComponent` sont chargés uniquement quand l'utilisateur navigue vers `/about` ou `/tasks`.
+
+### Comment on structure une app avec features/
+
+On organise le code en **features** (fonctionnalités) pour faciliter le lazy loading :
+
+```
+src/app/
+├── core/              # Services partagés
+│   └── services/
+└── features/          # Features de l'application
+    ├── home/          # Feature Home
+    ├── about/         # Feature About
+    └── tasks-page/    # Feature Tasks
+```
+
+Chaque feature peut être chargée indépendamment via `loadComponent()` dans les routes, ce qui permet de séparer les préoccupations et d'améliorer la maintenabilité du code.

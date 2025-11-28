@@ -16,6 +16,7 @@ export class TasksPageComponent {
 
   newTask = { title: '', description: '' };
   showForm = false;
+  completedTasks = new Set<number>();
 
   addTask(): void {
     if (!this.newTask.title.trim() || !this.newTask.description.trim()) {
@@ -29,6 +30,23 @@ export class TasksPageComponent {
 
   toggleForm(): void {
     this.showForm = !this.showForm;
+  }
+
+  toggleTask(taskId: number): void {
+    if (this.completedTasks.has(taskId)) {
+      this.completedTasks.delete(taskId);
+    } else {
+      this.completedTasks.add(taskId);
+    }
+  }
+
+  isTaskCompleted(taskId: number): boolean {
+    return this.completedTasks.has(taskId);
+  }
+
+  removeTask(taskId: number): void {
+    this.taskService.removeTask(taskId);
+    this.completedTasks.delete(taskId);
   }
 }
 
