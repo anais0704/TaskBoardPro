@@ -1,8 +1,6 @@
 :host {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #2f2f2f;
   display: block;
-  background: #fff;
+  min-height: 100vh;
 }
 
 .app-shell {
@@ -12,18 +10,25 @@
 }
 
 .app-header {
-  background: #ec407a;
+  background: linear-gradient(135deg, #ec407a 0%, #d81b60 100%);
   color: #fff;
-  padding: 1rem;
+  padding: 1.25rem 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 2px 8px rgba(236, 64, 122, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .brand {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  letter-spacing: -0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .menu-toggle {
@@ -32,40 +37,95 @@
 
 .main-nav {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .main-nav a {
   color: #ffeef4;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.main-nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
 }
 
 .main-nav a.active {
-  background: #d81b60;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .app-main {
   flex: 1;
-  padding: 2rem 1rem;
-  background: #fce4ec;
+  padding: 2.5rem 1rem;
+  background: transparent;
 }
 
 .page-surface {
   background: #fff;
-  border-radius: 8px;
-  padding: 1.5rem;
-  max-width: 900px;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 1000px;
   margin: 0 auto;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(236, 64, 122, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
-@media (max-width: 600px) {
+.page-surface:hover {
+  box-shadow: 0 6px 24px rgba(236, 64, 122, 0.15);
+}
+
+.app-footer {
+  background: linear-gradient(135deg, #ec407a 0%, #d81b60 100%);
+  color: #fff;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  margin-top: auto;
+  box-shadow: 0 -2px 8px rgba(236, 64, 122, 0.2);
+}
+
+.app-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1rem 1.5rem;
+  }
+
   .main-nav {
     width: 100%;
     justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .page-surface {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-header {
+    padding: 1rem;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+  }
+
+  .main-nav a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
   }
 }
 

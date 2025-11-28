@@ -18,9 +18,30 @@
 
   <ng-container *ngIf="tasks$ | async as tasks; else loading">
     <ul>
-      <li *ngFor="let task of tasks">
-        <strong>{{ task.title }}</strong>
-        <p>{{ task.description }}</p>
+      <li *ngFor="let task of tasks" [class.completed]="isTaskCompleted(task.id)">
+        <div class="task-content">
+          <strong>{{ task.title }}</strong>
+          <p>{{ task.description }}</p>
+        </div>
+        <div class="task-actions">
+          <input
+            type="checkbox"
+            [checked]="isTaskCompleted(task.id)"
+            (change)="toggleTask(task.id)"
+            class="task-checkbox"
+          />
+          <button
+            type="button"
+            (click)="removeTask(task.id)"
+            class="task-delete"
+            aria-label="Supprimer la tâche"
+            title="Supprimer"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 4V13.3333C12 13.6869 11.8595 14.0261 11.6095 14.2761C11.3594 14.5262 11.0203 14.6667 10.6667 14.6667H5.33333C4.97971 14.6667 4.64057 14.5262 4.39052 14.2761C4.14048 14.0261 4 13.6869 4 13.3333V4M14.6667 4H1.33333M10.6667 4V2.66667C10.6667 2.31305 10.5262 1.97391 10.2761 1.72386C10.0261 1.47381 9.68696 1.33333 9.33333 1.33333H6.66667C6.31305 1.33333 5.97391 1.47381 5.72386 1.72386C5.47381 1.97391 5.33333 2.31305 5.33333 2.66667V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
       </li>
     </ul>
   </ng-container>
