@@ -14,6 +14,11 @@ export const routes: Routes = [
     title: 'TaskBoard Pro | About'
   },
   {
+    path: 'tasks',
+    loadComponent: () => import('./tasks-page/tasks-page.component').then(m => m.TasksPageComponent),
+    title: 'TaskBoard Pro | Tasks'
+  },
+  {
     path: '**',
     redirectTo: ''
   }

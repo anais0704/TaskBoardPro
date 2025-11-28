@@ -1,21 +1,26 @@
-.hero {
-  padding: 2rem 1rem;
-  text-align: center;
-}
-
-.hero__eyebrow {
-  font-size: 1.4rem;
-  font-weight: 700;
+h2 {
+  margin: 0 0 1rem;
   color: #d81b60;
-  margin-bottom: 1rem;
+  font-size: 1.6rem;
 }
 
-.hero__cta {
+p {
+  margin: 0 0 1.5rem;
+}
+
+.home-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home-link {
   display: inline-block;
-  padding: 0.7rem 1.5rem;
-  border: 1px solid #ec407a;
-  color: #ec407a;
-  text-decoration: none;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid #d81b60;
   border-radius: 4px;
+  text-decoration: none;
+  color: #d81b60;
 }
 

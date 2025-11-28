@@ -13,6 +13,7 @@ ng g component task
 
 - `/` HomeComponent
 - `/about` AboutComponent
+- `/tasks` TasksPageComponent (lazy loading)
 
 ## Séquence 2 - Logique réactive du flux de données
 
