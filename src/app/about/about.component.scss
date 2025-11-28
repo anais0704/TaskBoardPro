@@ -1,0 +1,23 @@
+.about-card {
+  background: #fff;
+  padding: 2rem 1rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.about-card h1 {
+  margin: 0 0 1rem;
+  color: #d81b60;
+  font-size: 1.6rem;
+}
+
+.about-card__link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid #d81b60;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #d81b60;
+}
+

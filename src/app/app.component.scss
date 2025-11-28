@@ -1,0 +1,65 @@
+:host {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #2f2f2f;
+  display: block;
+  background: #fff;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: #ec407a;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.main-nav a {
+  color: #ffeef4;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.app-main {
+  flex: 1;
+  padding: 2rem 1rem;
+  background: #fce4ec;
+}
+
+.page-surface {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 600px) {
+  .main-nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
