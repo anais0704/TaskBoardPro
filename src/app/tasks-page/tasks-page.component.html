@@ -1,0 +1,32 @@
+<section class="tasks-card">
+  <h2>Liste des tâches</h2>
+
+  <button type="button" class="tasks-card__toggle" (click)="toggleForm()">
+    {{ showForm ? 'Fermer le formulaire' : 'Ajouter une tâche' }}
+  </button>
+
+  <form *ngIf="showForm" (ngSubmit)="addTask()" class="tasks-card__form">
+    <input type="text" placeholder="Titre" [(ngModel)]="newTask.title" name="title" required />
+    <textarea
+      placeholder="Description"
+      [(ngModel)]="newTask.description"
+      name="description"
+      required
+    ></textarea>
+    <button type="submit">Enregistrer</button>
+  </form>
+
+  <ng-container *ngIf="tasks$ | async as tasks; else loading">
+    <ul>
+      <li *ngFor="let task of tasks">
+        <strong>{{ task.title }}</strong>
+        <p>{{ task.description }}</p>
+      </li>
+    </ul>
+  </ng-container>
+
+  <ng-template #loading>
+    <p class="tasks-card__loading">Chargement des tâches...</p>
+  </ng-template>
+</section>
+
