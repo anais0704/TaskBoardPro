@@ -82,6 +82,41 @@
   box-shadow: 0 6px 24px rgba(236, 64, 122, 0.15);
 }
 
+.notif {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  max-width: 320px;
+  background: #ec407a;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  box-shadow: 0 6px 18px rgba(236, 64, 122, 0.35);
+  z-index: 200;
+  animation: notif-fade 3s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes notif-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
 .app-footer {
   background: linear-gradient(135deg, #ec407a 0%, #d81b60 100%);
   color: #fff;

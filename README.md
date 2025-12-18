@@ -109,10 +109,21 @@ On organise le code en **features** (fonctionnalités) pour faciliter le lazy lo
 src/app/
 ├── core/              # Services partagés
 │   └── services/
-└── features/          # Features de l'application
-    ├── home/          # Feature Home
-    ├── about/         # Feature About
-    └── tasks-page/    # Feature Tasks
+├── home/              # Page d'accueil
+├── about/             # Page à propos (lazy)
+├── tasks-page/        # Page de gestion des tâches (lazy)
+└── task-highlight/    # Composant dynamique de mise en avant
 ```
 
 Chaque feature peut être chargée indépendamment via `loadComponent()` dans les routes, ce qui permet de séparer les préoccupations et d'améliorer la maintenabilité du code.
+
+### Composant dynamique et ViewContainerRef
+
+Un composant dynamique est un composant qu'on ne place pas directement dans le HTML, mais que l'on crée au runtime avec `createComponent()`.  
+Dans `TasksPageComponent`, on utilise `ViewContainerRef` pour injecter dynamiquement `TaskHighlightComponent` dans le template :
+
+1. On ajoute un conteneur dans le HTML : `#highlightContainer`
+2. On récupère ce conteneur avec `@ViewChild('highlightContainer', { read: ViewContainerRef })`
+3. On crée le composant au clic sur « Mettre en avant » avec `highlightContainer.createComponent(TaskHighlightComponent)`
+
+Résultat : le composant `TaskHighlightComponent` s'affiche au-dessus de la liste pour mettre visuellement en avant la tâche sélectionnée.

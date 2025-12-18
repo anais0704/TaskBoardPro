@@ -1,0 +1,16 @@
+<div class="edit-card">
+  <input
+    type="text"
+    [(ngModel)]="title"
+    placeholder="Nouveau titre"
+  />
+  <textarea
+    [(ngModel)]="description"
+    placeholder="Nouvelle description"
+  ></textarea>
+  <div class="edit-card__actions">
+    <button type="button" class="edit-card__cancel" (click)="onCancel()">Annuler</button>
+    <button type="button" class="edit-card__save" (click)="save()">Enregistrer</button>
+  </div>
+</div>
+

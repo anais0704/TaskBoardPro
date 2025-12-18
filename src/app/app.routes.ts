@@ -9,12 +9,12 @@ export const routes: Routes = [
   },
   {
     path: 'about',
-    loadComponent: () => import('./about/about.component').then(m => m.AboutComponent),
+    loadComponent: () => import('./features/about/about/about.component').then(m => m.AboutComponent),
     title: 'TaskBoard Pro | About'
   },
   {
     path: 'tasks',
-    loadComponent: () => import('./tasks-page/tasks-page.component').then(m => m.TasksPageComponent),
+    loadChildren: () => import('./features/tasks/routes').then(m => m.TASKS_ROUTES),
     title: 'TaskBoard Pro | Tasks'
   },
   {

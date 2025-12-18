@@ -1,0 +1,47 @@
+.edit-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.edit-card input,
+.edit-card textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #f8c4d6;
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+.edit-card textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+.edit-card__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.edit-card__cancel,
+.edit-card__save {
+  border: none;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.edit-card__cancel {
+  background: #fff;
+  color: #d81b60;
+  border: 1px solid #f3a7c0;
+}
+
+.edit-card__save {
+  background: #ec407a;
+  color: #fff;
+}
+
