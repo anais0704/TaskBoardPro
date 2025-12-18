@@ -46,6 +46,16 @@ export class TaskService {
     return this.tasks$;
   }
 
+  getTasksSync(): Task[] {
+    return this.taskSubject.value;
+  }
+
+  clearTasks(): void {
+    this.tasks = [];
+    this.taskSubject.next([]);
+    this.lastMessage = '';
+  }
+
   addTask(task: Task): void {
     this.tasks = [...this.tasks, { ...task, completed: false }];
     this.lastMessage = 'Tâche ajoutée';
