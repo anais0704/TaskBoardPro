@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 
 export const routes: Routes = [
   {
@@ -10,12 +9,12 @@ export const routes: Routes = [
   },
   {
     path: 'about',
-    component: AboutComponent,
+    loadComponent: () => import('./features/about/about/about.component').then(m => m.AboutComponent),
     title: 'TaskBoard Pro | About'
   },
   {
     path: 'tasks',
-    loadComponent: () => import('./tasks-page/tasks-page.component').then(m => m.TasksPageComponent),
+    loadChildren: () => import('./features/tasks/routes').then(m => m.TASKS_ROUTES),
     title: 'TaskBoard Pro | Tasks'
   },
   {

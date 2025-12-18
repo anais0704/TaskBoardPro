@@ -1,0 +1,11 @@
+<section class="stats">
+  <h3>Statistiques</h3>
+  <ng-container *ngIf="stats$ | async as stats">
+    <p>Total : {{ stats.total }}</p>
+    <p>Terminées : {{ stats.done }}</p>
+    <p>En cours : {{ stats.active }}</p>
+    <p>Pourcentage terminées : {{ stats.percent }}%</p>
+  </ng-container>
+</section>
+
+
