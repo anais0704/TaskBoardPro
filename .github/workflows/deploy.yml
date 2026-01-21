@@ -35,7 +35,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/taskboard-pro
+          path: dist/taskboard-pro/browser
 
   deploy:
     needs: build
