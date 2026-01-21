@@ -1,4 +1,4 @@
-import { Component, EnvironmentInjector, ViewChild, ViewChildren, ViewContainerRef, QueryList, inject } from '@angular/core';
+import { Component, EnvironmentInjector, ViewChild, ViewChildren, ViewContainerRef, QueryList, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule, AsyncPipe } from '@angular/common';
 import { Task, TaskService } from '../../../core/services/task.service';
 import { TaskHighlightComponent } from '../task-highlight/task-highlight.component';
@@ -12,7 +12,8 @@ import { Observable } from 'rxjs';
   standalone: true,
   imports: [CommonModule, AsyncPipe, TaskStatsComponent],
   templateUrl: './tasks-page.component.html',
-  styleUrls: ['./tasks-page.component.scss']
+  styleUrls: ['./tasks-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TasksPageComponent {
   private readonly taskService = inject(TaskService);
@@ -102,6 +103,10 @@ export class TasksPageComponent {
 
   removeTask(taskId: number): void {
     this.taskService.deleteTask(taskId);
+  }
+
+  trackByTaskId(index: number, task: Task): number {
+    return task.id;
   }
 }
 
